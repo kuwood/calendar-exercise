@@ -23,15 +23,23 @@ export default class TimeSlot extends PureComponent {
     }
 
     render() {
-        let {hour} = this.props;
+        // get dateDisplay split and point to hour
+        // if hour is ahead of timeslot hour change opacity
+
+        let {hour, dateTime} = this.props;
         let displayHour = getDisplayHour(hour);
+        let currentHour = parseInt(dateTime.split(' ')[4].split(':')[0], 10);
+        let timeSlotEventsClassList = ["time-slot__events"]
+        if (currentHour > hour) {
+            timeSlotEventsClassList.push(' old-event')
+        }
 
         return (
             <section className="time-slot">
                 <span className="time-slot__hour-label">
                     {displayHour}
                 </span>
-                <div className="time-slot__events">
+                <div className={`${timeSlotEventsClassList.join('')}`}>
                     {this._renderEvents()}
                 </div>
             </section>

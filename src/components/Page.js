@@ -58,6 +58,7 @@ export default class Page extends PureComponent {
         let filteredEvents = filterEventsByDay(events, day);
         let selectedEvent = getEventFromEvents(events, selectedEventId);
         let eventDetailOverlay;
+        const dateTime = getDisplayDate(day);
 
         if (selectedEvent) {
             eventDetailOverlay = (
@@ -74,11 +75,11 @@ export default class Page extends PureComponent {
                     <h1 className="page__title">Daily Agenda</h1>
                 </header>
                 <DayNavigator
-                    dateDisplay={getDisplayDate(day)}
+                    dateDisplay={dateTime}
                     onPrev={this._handlePrev.bind(this)}
                     onNext={this._handleNext.bind(this)}
                 />
-                <Calendar events={filteredEvents} onSelectEvent={this._handleSelectEvent.bind(this)} />
+                <Calendar dateTime={dateTime} events={filteredEvents} onSelectEvent={this._handleSelectEvent.bind(this)} />
                 {eventDetailOverlay}
             </div>
         );
