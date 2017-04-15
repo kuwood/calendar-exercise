@@ -76,3 +76,19 @@
      */
     background-color: #000;
 }
+
+.active {
+    box-shadow: 0 0 0.25rem 0 #51b1e0;
+}
+.sky {
+    background-color: #d1e8f0;
+}
+.canary {
+    background-color: #fcf69a;
+}
+.rose {
+    background-color: #fcbbd2;
+}
+.shamrock {
+    background-color: #009e60;
+}
