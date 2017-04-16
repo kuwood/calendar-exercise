@@ -26,10 +26,8 @@ export default class EventDetailOverlay extends PureComponent {
         document.addEventListener('keyup', (event) => {
             if (event.keyCode === 27) this.props.onClose()
         })
-        // TODO: The event label color should match the event color
         // TODO: Add appropriate ARIA tags to overlay/dialog
         // TODO: Support clicking outside of the overlay to close it
-        // TODO: Support clicking ESC to close it
         return (
             <section className="event-detail-overlay">
                 <div className="event-detail-overlay__container">

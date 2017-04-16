@@ -14,9 +14,7 @@ const _DATE_MONTH_MAP = [
  * @param {Date} timestamp - The timestamp representing the day to match
  * @returns {array}
  */
-export const filterEventsByDay = (events, timestamp) => {
-    // TODO: Implement day filtering!
-    
+export const filterEventsByDay = (events, timestamp) => { 
     return events.filter(event => {
         let eventDate = new Date(event.start)
         let targetDate = new Date(timestamp)
@@ -49,7 +47,6 @@ export const getDisplayDate = (timestamp) => {
     let date = new Date(timestamp);
     let day = _DATE_DAY_MAP[date.getDay()]
     let month = _DATE_MONTH_MAP[date.getMonth()]
-    // TODO: Format the date like: "Tuesday, April 11, 2017"
     return `${day}, ${month} ${date.getDate()}, ${date.getFullYear()}`
 };
 
@@ -58,7 +55,6 @@ export const getDisplayDate = (timestamp) => {
  * @param {number} hour - The hour
  * @returns {string}
  */
-// TODO: Implement using a more programmatic approach instead of map
 export const getDisplayHour = (hour) => {
     if (hour === 0) return '12AM'
     else if (hour >= 1 && hour <= 11) return `${hour}AM`
