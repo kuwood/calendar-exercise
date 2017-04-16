@@ -21,8 +21,14 @@ const _DATE_MONTH_MAP = [
  */
 export const filterEventsByDay = (events, timestamp) => {
     // TODO: Implement day filtering!
-
-    return events;
+    
+    return events.filter(event => {
+        let eventDate = new Date(event.start)
+        let targetDate = new Date(timestamp)
+        return eventDate.getFullYear() === targetDate.getFullYear() &&
+               eventDate.getMonth() === targetDate.getMonth() &&
+               eventDate.getDate() === targetDate.getDate()
+    })
 }
 
 /**
