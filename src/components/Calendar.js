@@ -13,7 +13,7 @@ export default class Calendar extends PureComponent {
     }
 
     _renderTimeSlots() {
-        let {events, onSelectEvent, dateTime} = this.props;
+        let {events, onSelectEvent} = this.props;
 
         return new Array(HOURS_DAY)
             .fill(0)
@@ -23,7 +23,6 @@ export default class Calendar extends PureComponent {
 
                 return (
                     <TimeSlot
-                        dateTime={dateTime}
                         key={hour}
                         hour={hour}
                         events={filteredEvents}

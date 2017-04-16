@@ -25,10 +25,10 @@ export default class TimeSlot extends PureComponent {
     render() {
         // get dateDisplay split and point to hour
         // if hour is ahead of timeslot hour change opacity
-
-        let {hour, dateTime} = this.props;
+        
+        let {hour} = this.props;
         let displayHour = getDisplayHour(hour);
-        let currentHour = parseInt(dateTime.split(' ')[4].split(':')[0], 10);
+        let currentHour = new Date().getHours();
         let timeSlotEventsClassList = ["time-slot__events"]
         if (currentHour > hour) {
             timeSlotEventsClassList.push(' old-event')
