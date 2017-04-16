@@ -3,6 +3,15 @@ const _HOUR_DISPLAY_MAP = [
     '12PM', '1PM', '2PM', '3PM', '4PM', '5PM', '6PM', '7PM', '8PM', '9PM', '10PM', '11PM',
 ]
 
+const _DATE_DAY_MAP = [
+    'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'
+]
+
+const _DATE_MONTH_MAP = [
+    'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September',
+    'October', 'November', 'December'
+]
+
 /**
  * Given a list of events and a date, filter the events down to those that
  * fall on the same day as the date
@@ -37,10 +46,10 @@ export const filterEventsByHour = (events, hour) => (
  */
 export const getDisplayDate = (timestamp) => {
     let date = new Date(timestamp);
-
+    let day = _DATE_DAY_MAP[date.getDay()]
+    let month = _DATE_MONTH_MAP[date.getMonth()]
     // TODO: Format the date like: "Tuesday, April 11, 2017"
-
-    return date.toString();
+    return `${day}, ${month} ${date.getDate()}, ${date.getFullYear()}`
 };
 
 /**
