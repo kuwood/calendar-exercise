@@ -45,6 +45,9 @@ export default class Page extends PureComponent {
     _handleEventDetailOverlayClose() {
         this.setState({selectedEventId: undefined});
         document.body.classList.remove('no-scroll')
+        document.removeEventListener('keyup', (event) => {
+            if (event.keyCode === 27) this.props.onClose()
+        })
     }
 
     _handlePrev() {

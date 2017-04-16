@@ -23,7 +23,9 @@ export default class EventDetailOverlay extends PureComponent {
         let endHourDisplay = getDisplayHour(endHour);
 
         let displayDateTime = `${displayDate} ${startHourDisplay} - ${endHourDisplay}`
-
+        document.addEventListener('keyup', (event) => {
+            if (event.keyCode === 27) this.props.onClose()
+        })
         // TODO: The event label color should match the event color
         // TODO: Add appropriate ARIA tags to overlay/dialog
         // TODO: Support clicking outside of the overlay to close it
