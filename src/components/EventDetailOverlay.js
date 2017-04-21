@@ -29,24 +29,29 @@ export default class EventDetailOverlay extends PureComponent {
         // TODO: Add appropriate ARIA tags to overlay/dialog
         // TODO: Support clicking outside of the overlay to close it
         return (
-            <section className="event-detail-overlay">
-                <div className="event-detail-overlay__container">
-                    <button
-                        className="event-detail-overlay__close"
-                        title="Close detail view"
-                        onClick={onClose}
-                    />
-                    <div>
-                        {displayDateTime}
-                        <span
-                            className={`event-detail-overlay__color ${color}`}
-                            title={`Event label color: ${color}`}
+            <section className="event-detail-overlay__background"
+                onClick={(e) => {
+                    if (e.target.className === "event-detail-overlay__background") onClose()
+                }}>
+                <div className="event-detail-overlay">
+                    <div className="event-detail-overlay__container">
+                        <button
+                            className="event-detail-overlay__close"
+                            title="Close detail view"
+                            onClick={onClose}
                         />
+                        <div>
+                            {displayDateTime}
+                            <span
+                                className={`event-detail-overlay__color ${color}`}
+                                title={`Event label color: ${color}`}
+                            />
+                        </div>
+                        <h1 className="event-detail-overlay__title">
+                            {title}
+                        </h1>
+                        <p>{description}</p>
                     </div>
-                    <h1 className="event-detail-overlay__title">
-                        {title}
-                    </h1>
-                    <p>{description}</p>
                 </div>
             </section>
         );

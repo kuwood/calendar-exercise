@@ -13,8 +13,9 @@
 @media (min-width: 50rem) {
     .event-detail-overlay {
         height: 12rem;
+        position: relative;
         width: 100%;
-        top: auto;
+        top: calc(100vh - 12rem);
         padding-bottom: 0;
     }
 }
@@ -29,6 +30,15 @@
     padding: 1rem;
     background-color: #fff;
     overflow: auto;
+    z-index: 2;
+}
+
+.event-detail-overlay__background {
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
 }
 
 .event-detail-overlay__close {
